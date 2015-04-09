@@ -37,5 +37,7 @@ public class LobbyScene : MonoBehaviour {
 	public void onSelectStage (int nStage)
 	{
 		Debug.Log ("onSelectStage : " + nStage);
+		Application.LoadLevel("InGame"); // "Stage1" is the scene name
+
 	}
 }

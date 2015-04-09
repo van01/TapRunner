@@ -1,0 +1,27 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class ObjectMovement : MonoBehaviour {
+
+	public float m_fSpeed = -5.0f;
+	
+	// Use this for initialization
+	void Start () {
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		foreach (Transform t in transform) {
+			if (t != null && t.gameObject != null)
+			{
+				float fGameSpeed = GameManager.Instance.fGameSpeed;
+
+				Vector3 pos = t.transform.position;
+				
+				pos.x += m_fSpeed * Time.deltaTime * fGameSpeed;
+				
+				t.transform.position = pos;
+			}
+		}
+	}
+}
