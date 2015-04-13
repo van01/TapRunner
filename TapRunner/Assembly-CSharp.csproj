@@ -183,13 +183,17 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\BgLooper.cs" />
+     <Compile Include="Assets\Script\BgScroll.cs" />
      <Compile Include="Assets\Script\CameraMovement.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\LobbyScene.cs" />
      <Compile Include="Assets\Script\LobbyScrollView.cs" />
      <Compile Include="Assets\Script\Logo.cs" />
      <Compile Include="Assets\Script\ObjectMovement.cs" />
+     <Compile Include="Assets\Script\PlayerControl.cs" />
+     <Compile Include="Assets\Script\ReadyCount.cs" />
      <Compile Include="Assets\Script\TweenScrollBarValue.cs" />
+     <Compile Include="Assets\Script\UIIngameController.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.6.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
