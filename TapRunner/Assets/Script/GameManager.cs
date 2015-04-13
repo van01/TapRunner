@@ -9,7 +9,6 @@ public enum STATE
 	STATE_GAMEOVER,
 }
 
-
 public class GameManager : MonoBehaviour {
 
 	static private string 		HIGHSCORE = "HIGHSCORE";
@@ -21,12 +20,10 @@ public class GameManager : MonoBehaviour {
 	private float				m_fScore = 0.0f;
 	private STATE				m_eState = STATE.STATE_NONE;
 
-	private bool				m_isBoost = false;
-	private float				m_fBoostCheck = 0.0f;
-	private float 				m_fBoostEndTime = 0.5f;
+	public BgScroll				m_BgScroll;
+	public PlayerControl		m_playerControl;
 
-	public BgScroll			m_BgScroll;
-	public PlayerControl	m_playerControl;
+	private BoostFlag			m_boostFlag = new BoostFlag ();
 
 	public static GameManager Instance 
 	{
@@ -113,7 +110,7 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Screen.orientation = ScreenOrientation.Landscape;
+		Screen.orientation = ScreenOrientation.Portrait;
 		m_fHighScore = PlayerPrefs.GetFloat (HIGHSCORE, 0);
 
 
@@ -124,17 +121,6 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if ( m_eState == STATE.STATE_READY)
-		{
-			if (m_isBoost)
-			{
-				m_fBoostCheck += Time.deltaTime;
-				if (m_fBoostCheck > m_fBoostEndTime)
-				{
-					m_isBoost = false;
-				}
-			}
-		}
 	}
 
 	//-------------------------------------------------------------------------------------
@@ -168,19 +154,29 @@ public class GameManager : MonoBehaviour {
 		Camera.main.transform.position = pos;
 	}
 
-	public void setBoostCheckStart ()
+	public void startGame ()
 	{
+		Debug.Log ("Start Game");
 		changeState (STATE.STATE_GAME);
-		m_isBoost = true;
-		m_fBoostCheck = 0.0f;
 	}
 
-	public void onBoost()
+	public void onTouch()
 	{
-		if (m_isBoost) 
+		switch (m_eState)
 		{
-			m_isBoost = false;
-			m_playerControl.onBoost();
+		case STATE.STATE_READY:
+			m_boostFlag.checkBoost();
+			break;
+		case STATE.STATE_GAME:
+			m_boostFlag.checkBoost();
+			break;
+		case STATE.STATE_GAMEOVER:
+			break;
 		}
+	}
+
+	public void setBoost()
+	{
+		m_playerControl.setBoost ();
 	}
 }

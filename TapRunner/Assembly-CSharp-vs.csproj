@@ -184,6 +184,7 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\BgLooper.cs" />
      <Compile Include="Assets\Script\BgScroll.cs" />
+     <Compile Include="Assets\Script\BoostFlag.cs" />
      <Compile Include="Assets\Script\CameraMovement.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\LobbyScene.cs" />

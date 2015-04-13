@@ -33,7 +33,7 @@ public class ReadyCount : MonoBehaviour {
 	void onGo()
 	{
 		m_labelCount.text = "GO";
-		GameManager.Instance.setBoostCheckStart ();
+		GameManager.Instance.startGame ();
 	}
 
 	void onHide()
