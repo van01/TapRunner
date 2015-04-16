@@ -1,10 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/BgLooper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/GameManager.cs">
     <Files>
       <File FileName="Assets/Script/LobbyScene.cs" Line="40" Column="32" />
-      <File FileName="../../MeteoRunner/MeteorRunner/Assets/Script/backgroundLooper.cs" Line="16" Column="1" />
-      <File FileName="Assets/Script/BgLooper.cs" Line="29" Column="42" />
+      <File FileName="../../MeteoRunner/MeteorRunner/Assets/Script/backgroundLooper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/BgLooper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/TweenScrollBarValue.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/ObjectMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/PlayerControl.cs" Line="55" Column="27" />
+      <File FileName="Assets/Script/UIIngameController.cs" Line="33" Column="31" />
+      <File FileName="Assets/Script/BgScroll.cs" Line="6" Column="30" />
+      <File FileName="Assets/Script/GameManager.cs" Line="190" Column="4" />
+      <File FileName="Assets/Script/ReadyCount.cs" Line="36" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

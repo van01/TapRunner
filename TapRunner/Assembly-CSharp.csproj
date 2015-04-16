@@ -39,10 +39,10 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>/Applications/Unity5/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>/Applications/Unity5/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -183,13 +183,18 @@
      <Compile Include="Assets\NGUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\NGUI\Scripts\UI\UIViewport.cs" />
      <Compile Include="Assets\Script\BgLooper.cs" />
+     <Compile Include="Assets\Script\BgScroll.cs" />
+     <Compile Include="Assets\Script\BoostFlag.cs" />
      <Compile Include="Assets\Script\CameraMovement.cs" />
      <Compile Include="Assets\Script\GameManager.cs" />
      <Compile Include="Assets\Script\LobbyScene.cs" />
      <Compile Include="Assets\Script\LobbyScrollView.cs" />
      <Compile Include="Assets\Script\Logo.cs" />
      <Compile Include="Assets\Script\ObjectMovement.cs" />
+     <Compile Include="Assets\Script\PlayerControl.cs" />
+     <Compile Include="Assets\Script\ReadyCount.cs" />
      <Compile Include="Assets\Script\TweenScrollBarValue.cs" />
+     <Compile Include="Assets\Script\UIIngameController.cs" />
      <None Include="Assets\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\ReadMe - 3.6.6.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
@@ -228,7 +233,7 @@
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
      <None Include="Assets\NGUI\Examples\Resources\Localization.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity5/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

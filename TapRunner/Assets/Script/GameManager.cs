@@ -9,16 +9,21 @@ public enum STATE
 	STATE_GAMEOVER,
 }
 
-
 public class GameManager : MonoBehaviour {
 
 	static private string 		HIGHSCORE = "HIGHSCORE";
 	static private GameManager			m_instance = null;
 
+	private float 				m_fReadyCount = 0.0f;
 	private float 				m_fGameSpeed 	= 1.0f;
 	private float 				m_fHighScore = 0.0f;
 	private float				m_fScore = 0.0f;
-	private STATE				m_eState;
+	private STATE				m_eState = STATE.STATE_NONE;
+
+	public BgScroll				m_BgScroll;
+	public PlayerControl		m_playerControl;
+
+	private BoostFlag			m_boostFlag = new BoostFlag ();
 
 	public static GameManager Instance 
 	{
@@ -105,11 +110,11 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Screen.orientation = ScreenOrientation.Landscape;
+		Screen.orientation = ScreenOrientation.Portrait;
 		m_fHighScore = PlayerPrefs.GetFloat (HIGHSCORE, 0);
 
 
-		changeState (STATE.STATE_GAME);
+		changeState (STATE.STATE_READY);
 	}
 
 	//-------------------------------------------------------------------------------------
@@ -122,6 +127,7 @@ public class GameManager : MonoBehaviour {
 
 	void onReady() {
 		m_fGameSpeed = 0.0f;
+		m_fReadyCount = 0.0f;
 	}
 
 	//-------------------------------------------------------------------------------------
@@ -137,5 +143,40 @@ public class GameManager : MonoBehaviour {
 	{
 		m_fGameSpeed = 0.0f;
 
+	}
+
+	public void onPlayerMove (float deltaMoveX)
+	{
+		m_BgScroll.move (deltaMoveX);
+
+		Vector3  pos = Camera.main.transform.position;
+		pos.x += deltaMoveX;
+		Camera.main.transform.position = pos;
+	}
+
+	public void startGame ()
+	{
+		Debug.Log ("Start Game");
+		changeState (STATE.STATE_GAME);
+	}
+
+	public void onTouch()
+	{
+		switch (m_eState)
+		{
+		case STATE.STATE_READY:
+			m_boostFlag.checkBoost();
+			break;
+		case STATE.STATE_GAME:
+			m_boostFlag.checkBoost();
+			break;
+		case STATE.STATE_GAMEOVER:
+			break;
+		}
+	}
+
+	public void setBoost()
+	{
+		m_playerControl.setBoost ();
 	}
 }
