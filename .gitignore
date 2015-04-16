@@ -1,11 +1,11 @@
 *.userprefs
 Temp
 Library
-MeteorRunner/obj/Debug/Assembly-CSharp-vs.csproj.FilesWrittenAbsolute.txt
-MeteorRunner/obj/Debug/Assembly-CSharp.dll
-MeteorRunner/obj/Debug/Assembly-CSharp.dll.mdb
-MeteorRunner/MeteorRunner.sublime-project
-MeteorRunner/MeteorRunner.sublime-workspace
+TapRunner/obj/Debug/Assembly-CSharp-vs.csproj.FilesWrittenAbsolute.txt
+TapRunner/obj/Debug/Assembly-CSharp.dll
+TapRunner/obj/Debug/Assembly-CSharp.dll.mdb
+TapRunner/TapRunner.sublime-project
+TapRunner/TapRunner.sublime-workspace
 TapRunner/Assembly-CSharp-Editor-vs.csproj
 TapRunner/Assembly-CSharp-Editor.csproj
 TapRunner/Assembly-CSharp-vs.csproj
