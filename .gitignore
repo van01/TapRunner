@@ -12,3 +12,6 @@ TapRunner/Assembly-CSharp-vs.csproj
 TapRunner/Assembly-CSharp.csproj
 TapRunner/TapRunner-csharp.sln
 TapRunner/TapRunner.sln
+*.sln
+*.sln
+*.userprefs
