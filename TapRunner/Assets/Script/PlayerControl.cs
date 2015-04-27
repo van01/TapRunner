@@ -72,7 +72,6 @@ public class PlayerControl : MonoBehaviour {
 			nPlayerState = 3;
 		}
 
-		Debug.Log ("Animation State : " + nPlayerState);
 		m_animator.SetInteger ("PlayerState", nPlayerState);
 	}
 
