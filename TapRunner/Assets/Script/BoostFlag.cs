@@ -15,7 +15,7 @@ public class BoostFlag : MonoBehaviour {
 	private BoostState			m_eState;
 	private BoostState			m_eBoostState = BoostState.NONE;
 	private float				m_fBoostCheck = 0.0f;
-	private float 				m_fBoostEndTime = 0.5f;
+	private float 				m_fBoostEndTime = 1.0f;
 
 
 	// Use this for initialization
@@ -24,7 +24,7 @@ public class BoostFlag : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	public void Update () {
 		switch (GameManager.Instance.getState())
 		{
 		case STATE.STATE_GAME:

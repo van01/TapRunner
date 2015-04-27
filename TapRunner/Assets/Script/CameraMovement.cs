@@ -4,6 +4,7 @@ using System.Collections;
 public class CameraMovement : MonoBehaviour {
 
 	public float m_fSpeed = 2.0f;
+	public Transform m_targetObject;
 
 	// Use this for initialization
 	void Start () {
@@ -11,13 +12,9 @@ public class CameraMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		float fGameSpeed = GameManager.Instance.fGameSpeed;
-		
-		Vector3 pos = transform.position;
-		
-		pos.x += m_fSpeed * Time.deltaTime * fGameSpeed;
-		
-		transform.position = pos;
-
+		Vector3 pos = m_targetObject.position;
+		pos.y += 1.068f;
+		pos.z = transform.position.z;
+		gameObject.transform.position = pos;
 	}
 }
