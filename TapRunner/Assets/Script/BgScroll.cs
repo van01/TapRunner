@@ -12,16 +12,18 @@ public class BgScroll : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	//void Update () {
+	void Update() {
+		float colliderWidth = 0.0f;
 		foreach (Transform t in transform) {
 			if (t != null && t.gameObject != null)
 			{
 				Vector3 pos = t.transform.position;
 				pos.x = m_targetObject.position.x - m_targetObject.position.x * 0.1f;
+				pos.x += colliderWidth;
 				t.transform.position = pos;
 
-				float colliderWidth = t.GetComponent<BoxCollider2D>().size.x;
-				pos.x += colliderWidth * transform.localScale.x;
+				colliderWidth += t.GetComponent<BoxCollider2D>().size.x * t.transform.localScale.x;
 			}
 		}
 	}

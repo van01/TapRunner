@@ -7,14 +7,31 @@ public class PlayerControl : MonoBehaviour {
 	public float m_fMaxStamina = 5.0f;
 	private float m_fStamina = 0.0f;
 	private float m_fBoostStamina = 10.0f;
-	private Animator m_animator;
+	public Animator m_animator;
+
+	private bool m_isGrounded = true;
+	public Transform m_groundCheck;
+	private float m_fGroundRadius = 0.2f;
+	public LayerMask m_whatIsGround;
+
+
 
 	void Start () {
-		m_animator = GetComponent <Animator> ();
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+	}
+
+
+	void FixedUpdate () {
+		m_isGrounded = Physics2D.OverlapCircle (m_groundCheck.position, m_fGroundRadius, m_whatIsGround);
+		m_animator.SetBool ("isJump", !m_isGrounded);
+
+		Debug.Log ("m_isGrounded : " + m_isGrounded);
+
+
 		move ();
 	}
 

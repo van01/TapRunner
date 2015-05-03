@@ -58,4 +58,10 @@ public class UIIngameController : MonoBehaviour {
 	{
 		m_fRepeatTime += 0.1f;
 	}
+
+	public void onAcceleration()
+	{
+		Debug.Log ("Acceleration");
+		m_playerControl.setBoost ();
+	}
 }
