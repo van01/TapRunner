@@ -24,14 +24,9 @@ public class PlayerControl : MonoBehaviour {
 	{
 	}
 
-
 	void FixedUpdate () {
 		m_isGrounded = Physics2D.OverlapCircle (m_groundCheck.position, m_fGroundRadius, m_whatIsGround);
 		m_animator.SetBool ("isJump", !m_isGrounded);
-
-		Debug.Log ("m_isGrounded : " + m_isGrounded);
-
-
 		move ();
 	}
 

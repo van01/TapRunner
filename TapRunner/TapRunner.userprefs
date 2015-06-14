@@ -1,15 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/PlayerControl.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/BackgroundMaker/GroundMaker.cs">
     <Files>
-      <File FileName="Assets/Script/PlayerControl.cs" Line="70" Column="12" />
-      <File FileName="Assets/Script/InGame/UI/BottomScrollView.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/BackgroundMaker/GroundMaker.cs" Line="38" Column="53" />
+      <File FileName="Assets/Script/Background.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/CameraSetting.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/BgScroll.cs" Line="1" Column="1" />
       <File FileName="Assets/Script/GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/ReadyCount.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BoostFlag.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/UIIngameController.cs" Line="64" Column="30" />
-      <File FileName="Assets/Script/CameraMovement.cs" Line="17" Column="1" />
-      <File FileName="Assets/Script/BgScroll.cs" Line="16" Column="13" />
+      <File FileName="Assets/Script/BackgroundMaker/AutoBGDeco.cs" Line="1" Column="1" />
+      <File FileName="Assets/Script/PlayerControl.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

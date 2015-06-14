@@ -31,9 +31,6 @@ public class GameManager : MonoBehaviour {
 		{
 			if (m_instance == null)
 			{
-//			 	container = new GameObject();  
-//				container.name = "GameManager";  
-//				m_instance = container.AddComponent(typeof(GameManager)) as GameManager;  
 				m_instance = GameObject.FindObjectOfType (typeof(GameManager)) as GameManager;
 			}
 
@@ -148,7 +145,7 @@ public class GameManager : MonoBehaviour {
 
 	public void onPlayerMove (float deltaMoveX)
 	{
-		m_BgScroll.move (deltaMoveX);
+		//m_BgScroll.move (deltaMoveX);
 
 		Vector3  pos = Camera.main.transform.position;
 		pos.x += deltaMoveX;
