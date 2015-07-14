@@ -26,9 +26,10 @@ public class BgLooper : MonoBehaviour {
 			Vector3 position = collider.transform.position;
 			Vector3 scale = collider.transform.localScale;
 			
-			position.x += size.x * scale.x * 0.99f;
+			position.x += size.x * scale.x * 2.0f;
 			
 			collider.transform.position = position;
+			collider.transform.SendMessage("reset");
 		}
 		
 	}

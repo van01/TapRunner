@@ -1,55 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml.Serialization;
+using System.IO;
 
-public class BackgroundMaker : MonoBehaviour {
 
-	
+public class BackgroundMaker : ObjectMaker {
+
+	public enum OBJ_TYPE{
+		TYPE_CLOUD,
+		TYPE_MOUNT,
+		TYPE_MAX
+	};
+	private static int MAX = (int)OBJ_TYPE.TYPE_MAX;
+
 	public GameObject[]		mMountList;
-	public GameObject[]		mCloundList;
-	public BoxCollider2D	mCollider;
-	
-	AutoBGDeco []mDeco = new AutoBGDeco[5];
-	
-	[Range (0, 5)]
-	public float m_fMinPos = 2.25f;
-	[Range (0, 10)]
-	public float m_fMaxPos = 3.0f;
-	public float m_fRangPosY = 0.1f;
-	[Range (-5, 5)]
-	public float m_fOffsetPosY = 2.1f;
+	public GameObject[]		mCloudList;
 
-	[Range (0,5)]
-	public float m_fMinScale = 1.0f;
-	[Range (0,5)]
-	public float m_fMaxScale = 1.0f;
 
-	
-	public void onTest()
-	{
-		Debug.Log ("Test");
-		Vector2 fSacleRange	= new Vector2 (m_fMinScale, m_fMaxScale);
-		Vector2 fPosRange	= new Vector2 (m_fMinPos, m_fMaxPos);
-		
-		mDeco [1].clear ();
-		mDeco [1] = gameObject.AddComponent<AutoBGDeco>();
-		mDeco [1].init (mCloundList, mCollider, fSacleRange, fPosRange, m_fRangPosY,m_fOffsetPosY);
-	}
-	
 	// Use this for initialization
 	void Start () {
-		float rangeY = 0.1f;
-		Vector2 fSacleRange = new Vector2 (0.33f, 1.0f);
-		Vector2 fPosRange = new Vector2 (5.0f, 10.0f);
-		mDeco [0] = gameObject.AddComponent<AutoBGDeco>();
-		mDeco [0].init (mMountList, mCollider, fSacleRange, fPosRange, rangeY, 0.1f);
-		mDeco [0].transform.parent = this.gameObject.transform;
-
-
-		rangeY = 1.21f;
-		fSacleRange = new Vector2 (0.9f, 1.2f);
-		fPosRange = new Vector2 (4.0f, 8.0f);
-		mDeco [1] = gameObject.AddComponent<AutoBGDeco>();
-		mDeco [1].init (mCloundList, mCollider, fSacleRange, fPosRange, rangeY, -4.4f);
-		mDeco [1].transform.parent = this.gameObject.transform;
+		initTagList ();
+		initData ();
 	}
+
+	/* must start in Function of Start of First*/
+	protected void initTagList()
+	{
+		mTagList = new string[MAX];
+		for (int i=0; i<MAX; i++) {
+			mTagList[i] = ((OBJ_TYPE)i).ToString();
+		}
+	}
+	
+	void initData()
+	{
+		//1. initilaize
+		initData (MAX);
+
+		//2. set prefabs
+		mPrefabList [(int)OBJ_TYPE.TYPE_MOUNT] = mMountList;
+		mPrefabList [(int)OBJ_TYPE.TYPE_CLOUD] = mCloudList;
+
+		//3. load data from xml
+		loadData ();
+		onSelect (0);
+	}
+	
 }
+
+

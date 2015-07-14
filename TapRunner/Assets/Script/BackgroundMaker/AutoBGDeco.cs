@@ -8,25 +8,20 @@ public class AutoBGDeco : MonoBehaviour{
 
 	private GameObject[] 	mListDeco;
 	private BoxCollider2D	mBoxCollider;
-	Vector2 mBoxSize = new Vector2(); 
 
-	Vector2 mScaleRange;
-	Vector2 mPosRange;
+	public Vector2 mBoxSize = new Vector2(); 
+
+	public AutoBGDecoData mData;
 	
-	Vector2 mStartPoint;
-	Vector2 mEndPoint;
-	float m_fRangPosY;
+	public Vector2 mStartPoint;
+	public Vector2 mEndPoint;
 
-	public AutoBGDeco ()
+	public void init (GameObject []list, BoxCollider2D collider, AutoBGDecoData data)
 	{
-	}
-
-	public void init (GameObject []list, BoxCollider2D collider, Vector2 fScaleRange, Vector2 fPosRange,float fRangPosY, float fOffsetY)
-	{
+		mData = data;
 		mListDeco 		= list;
 		mBoxCollider 	= collider;
-		mScaleRange 	= fScaleRange;
-		mPosRange		= fPosRange;
+		//mScaleRange 	= fScaleRange;
 
 		mBoxSize.x 		= mBoxCollider.size.x * mBoxCollider.transform.localScale.x;
 		mBoxSize.y 		= mBoxCollider.size.y * mBoxCollider.transform.localScale.y;
@@ -34,10 +29,9 @@ public class AutoBGDeco : MonoBehaviour{
 		Debug.Log ("box : " + mBoxSize.x + " : " + mBoxSize.y);
 
 		float x 		= mBoxSize.x/2;
-		float y			= mBoxSize.y/2 + fOffsetY;
-		m_fRangPosY		= fRangPosY;
-		mStartPoint		= new Vector2 (-x, -y + m_fRangPosY);
-		mEndPoint		= new Vector2 (x, -y - m_fRangPosY);
+		float y			= mBoxSize.y/2 + mData.fOffsetY;
+		mStartPoint		= new Vector2 (-x, -y + mData.fRangPosY);
+		mEndPoint		= new Vector2 (x, -y - mData.fRangPosY);
 
 		reset ();
 	}
@@ -55,9 +49,11 @@ public class AutoBGDeco : MonoBehaviour{
 		clear ();
 		myList.Clear ();
 
-		float fMaxGap = mPosRange.x;
-		float fMinGap = mPosRange.y;
-		randomPosition (transform, mListDeco, mStartPoint, mEndPoint, fMinGap, fMaxGap, mScaleRange.x, mScaleRange.y);
+		//randomPosition (transform, mListDeco, mStartPoint, mEndPoint, fMinGap, fMaxGap, mScaleRange.x, mScaleRange.y);
+		randomPosition (transform, mListDeco, 
+		                mStartPoint, mEndPoint, 
+		                mData.fMinPos, mData.fMaxPos, 
+		                mData.fMinScale, mData.fMaxScale);
 	}
 
 
@@ -72,8 +68,10 @@ public class AutoBGDeco : MonoBehaviour{
 	 */
 	void randomPosition (Transform parent, GameObject []lpSprite, Vector2 start, Vector2 end, float fMinGap, float fMaxGap, float fMinScale = 1, float fMaxScale = 1)
 	{
+		int MAX = 100;
+		int cnt = 0;
 		float x = start.x;
-		while (x < end.x)
+		while (x < end.x & ++cnt < MAX)
 		{
 			int index = Random.Range (0, lpSprite.Length);
 			
