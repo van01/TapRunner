@@ -22,13 +22,17 @@ public class BgLooper : MonoBehaviour {
 		}
 		else
 		{
+			Debug.Log ("TriggerEnter2D : " + collider.name);
+
 			Vector3 size = ((BoxCollider2D)collider).size;
 			Vector3 position = collider.transform.position;
 			Vector3 scale = collider.transform.localScale;
 			
 			position.x += size.x * scale.x * 2.0f;
-			
-			collider.transform.position = position;
+
+			Debug.Log ( size.x + " : " + scale.x);
+
+			collider.transform.localPosition = position;
 			collider.transform.SendMessage("reset");
 		}
 		

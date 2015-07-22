@@ -10,7 +10,6 @@ public class AutoBGDecoContainer{
 	[XmlArrayItem("BGObject")]
 	public List<AutoBGDecoData> mDecoData = new List<AutoBGDecoData>();
 
-
 	public void AddBGDecoData (AutoBGDecoData data)
 	{
 		mDecoData.Add (data);
@@ -21,15 +20,4 @@ public class AutoBGDecoContainer{
 		return mDecoData[nIndex];
 	}
 
-	public void save()
-	{
-		var serializer = new XmlSerializer (typeof(AutoBGDecoContainer));
-		string path = Application.dataPath+"/test.xml";
-		Debug.Log("Save Start : " + path);
-		var stream = new FileStream (path, FileMode.Create);
-		serializer.Serialize (stream, this);
-		stream.Close ();
-		Debug.Log("Save End");
-
-	}
 }

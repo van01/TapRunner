@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using System.IO;
 
 [System.Serializable]
 public class ObjectMaker : MonoBehaviour {
@@ -23,10 +24,12 @@ public class ObjectMaker : MonoBehaviour {
 	protected string []mTagList;
 
 	public int m_nIndex = 0;
+	private string mTagName = "none";
 
 
-	protected void initData(int max)
+	protected void initData(int max, string tagName)
 	{
+		mTagName = tagName;
 		mPrefabList = new GameObject[max][];
 
 		for (int i=0; i<max; i++) {
@@ -37,34 +40,13 @@ public class ObjectMaker : MonoBehaviour {
 
 	public void loadData()
 	{
-		int i = 0;
+		load ();
 
-		mDeco [i] = gameObject.AddComponent<AutoBGDeco> ();
-		AutoBGDecoData data = mDecoContainer.GetBGDecoData (i);
-		mDeco [i].init (mPrefabList [i], mCollider, data);
-		/*
-		mData[i].fMinScale = 0.9f;
-		mData[i].fMaxScale = 1.2f;
-		mData[i].fMinPos = 4.0f;
-		mData[i].fMaxPos = 8.0f;
-		mData[i].fRangPosY = 1.21f;
-		mData[i].fOffsetPosY = -4.4f;
-*/
-		i = 1;
-		/*
-		mData[i] = new BackgroundData();
-		mDeco [i] = new AutoBGDeco ();
-		mData[i].fMinScale = 0.33f;
-		mData[i].fMaxScale = 1.0f;
-		mData[i].fMinPos = 5.0f;
-		mData[i].fMaxPos = 10.0f;
-		mData[i].fRangPosY = 0.1f;
-		mData[i].fOffsetPosY = 0.1f;
-		*/
-		
-		mDeco [i] = gameObject.AddComponent<AutoBGDeco> ();
-		data = mDecoContainer.GetBGDecoData (i);
-		mDeco [i].init (mPrefabList [i], mCollider, data);
+		for (int i=0; i<mTagList.Length; i++) {
+			mDeco [i] = gameObject.AddComponent<AutoBGDeco> ();
+			AutoBGDecoData data = mDecoContainer.GetBGDecoData (i);
+			mDeco [i].init (mPrefabList [i], mCollider, data);
+		}
 	}
 
 	public void Apply()
@@ -82,6 +64,7 @@ public class ObjectMaker : MonoBehaviour {
 		}
 		mDeco[m_nIndex] = gameObject.AddComponent<AutoBGDeco>();
 		AutoBGDecoData data = mDecoContainer.GetBGDecoData (m_nIndex);
+		data.setData (mTagList [m_nIndex], m_fMinPos, m_fMaxPos, m_fMinScale, m_fMaxScale, m_fRangPosY, m_fOffsetPosY);
 		mDeco[m_nIndex].init (mPrefabList[m_nIndex], mCollider, data);
 	}
 
@@ -98,8 +81,6 @@ public class ObjectMaker : MonoBehaviour {
 		m_fOffsetPosY = data.fOffsetY;
 		m_fMinScale = data.fMinScale;
 		m_fMaxScale = data.fMaxScale;
-		
-		Apply ();
 	}
 
 	private void setData (int index,float minScale, float maxScale, float posX, float posY, float rangeY, float offsetY)
@@ -121,13 +102,33 @@ public class ObjectMaker : MonoBehaviour {
 		return mTagList;
 	}
 
+
+	public string getFilePath (string fileTag)
+	{
+		return Application.dataPath+"/xml/"+fileTag+".xml";
+	}
+
 	/// <summary>
 	/// save to xml
 	/// </summary>
 	public void save()
 	{
-		mDecoContainer.save ();
+		string path = getFilePath (mTagName);
+		
+		var serializer = new XmlSerializer (typeof(AutoBGDecoContainer));
+		var stream = new FileStream (path, FileMode.Create);
+		serializer.Serialize (stream, mDecoContainer);
+		stream.Close ();
 	}
 	
+	public void load()
+	{
+		string path = getFilePath (mTagName);
+
+		var serializer = new XmlSerializer(typeof(AutoBGDecoContainer));
+		var stream = new FileStream(path, FileMode.Open);
+		mDecoContainer = serializer.Deserialize(stream) as AutoBGDecoContainer;
+		stream.Close();
+	}
 
 }

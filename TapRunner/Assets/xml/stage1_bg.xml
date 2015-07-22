@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<AutoBGDecoContainer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <BGObjects>
+    <BGObject name="TYPE_CLOUD" MinScale="0.9" MaxScale="1.2" MinPos="4" MaxPos="8" RangePosY="1.21" OffsetPosY="-4.4" />
+    <BGObject name="TYPE_MOUNT" MinScale="0.33" MaxScale="1" MinPos="5" MaxPos="10" RangePosY="0.1" OffsetPosY="0.1" />
+  </BGObjects>
+</AutoBGDecoContainer>

@@ -6,26 +6,30 @@ public class BgScroll : MonoBehaviour {
 	float m_fBgScrollSpeed = 0.9f;
 	public Transform m_targetObject;
 
+	float mStartCameraX = 0.0f;
+	float mPrevCameraX = 0.0f;
 	// Use this for initialization
 	void Start () {
-	
+		mStartCameraX = mPrevCameraX = Camera.main.transform.position.x;
 	}
 	
 	// Update is called once per frame
 	//void Update () {
 	void Update() {
-		float colliderWidth = 0.0f;
+		float cameraX = Camera.main.transform.position.x; 
+		float offsetX = cameraX - mPrevCameraX;
+		offsetX -= (offsetX * 0.1f);
+
 		foreach (Transform t in transform) {
 			if (t != null && t.gameObject != null)
 			{
 				Vector3 pos = t.transform.position;
-				pos.x = m_targetObject.position.x - m_targetObject.position.x * 0.1f;
-				pos.x += colliderWidth;
+				pos.x += offsetX;
 				t.transform.position = pos;
-
-				colliderWidth += t.GetComponent<BoxCollider2D>().size.x * t.transform.localScale.x;
 			}
 		}
+
+		mPrevCameraX = cameraX;
 	}
 
 	public void move(float deltaX)
@@ -42,6 +46,5 @@ public class BgScroll : MonoBehaviour {
 			}
 		}
 		*/
-
 	}
 }
