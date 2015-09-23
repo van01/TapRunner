@@ -4,6 +4,7 @@
     <BGObject name="TYPE_SMALL_WOOD" MinScale="1" MaxScale="1" MinPos="2.25" MaxPos="3" RangePosY="0.1" OffsetPosY="2.2" />
     <BGObject name="TYPE_BALL_WOOD" MinScale="1" MaxScale="1" MinPos="0.75" MaxPos="5" RangePosY="0.1" OffsetPosY="2.1" />
     <BGObject name="TYPE_WOOD" MinScale="1" MaxScale="1" MinPos="1.92" MaxPos="10" RangePosY="0.1" OffsetPosY="2.1" />
-    <BGObject name="TYPE_OBSTACLE" MinScale="1" MaxScale="1" MinPos="1.92" MaxPos="10" RangePosY="0.1" OffsetPosY="-0.31" />
+    <!--BGObject name="TYPE_OBSTACLE" MinScale="1" MaxScale="1" MinPos="1.92" MaxPos="10" RangePosY="0.1" OffsetPosY="-0.31" /-->
+    <BGObject name="TYPE_ITEM1" MinScale="1" MaxScale="1" MinPos="9.25" MaxPos="100" RangePosY="0" OffsetPosY="2" />
   </BGObjects>
 </AutoBGDecoContainer>

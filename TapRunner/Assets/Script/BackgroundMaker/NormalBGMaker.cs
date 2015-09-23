@@ -12,6 +12,7 @@ public class NormalBGMaker : ObjectMaker {
 		TYPE_BALL_WOOD,
 		TYPE_WOOD,
 		TYPE_OBSTACLE,
+		TYPE_ITEM1,
 		TYPE_MAX
 	};
 	private static int MAX = (int)OBJ_TYPE.TYPE_MAX;
@@ -20,6 +21,7 @@ public class NormalBGMaker : ObjectMaker {
 	public GameObject[]		mBallWoodList;
 	public GameObject[]		mWoodList;
 	public GameObject[]		mObstacleList;
+	public GameObject[]		mItemList1;
 
 
 	// Use this for initialization
@@ -47,6 +49,7 @@ public class NormalBGMaker : ObjectMaker {
 		mPrefabList [(int)OBJ_TYPE.TYPE_BALL_WOOD] = mBallWoodList;
 		mPrefabList [(int)OBJ_TYPE.TYPE_WOOD] = mWoodList;
 		mPrefabList [(int)OBJ_TYPE.TYPE_OBSTACLE] = mObstacleList;
+		mPrefabList [(int)OBJ_TYPE.TYPE_ITEM1] = mItemList1;
 
 		//3. load data from xml
 		loadData ();

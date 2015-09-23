@@ -33,6 +33,8 @@ public class PlayerControl : MonoBehaviour {
 	private void move()
 	{
 		//m_fTime -= (Time.deltaTime * 2);
+
+		//for test
 		m_fStamina -= (Time.deltaTime);
 
 		if (m_fStamina > 0.0f)

@@ -1,20 +1,6 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/BgScroll.cs">
-    <Files>
-      <File FileName="Assets/Script/BackgroundMaker/NormalBGEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/ObjectMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/AutoBGDeco.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/ObjectEditor.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/AutoBGDecoData.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/AutoBGDecoContainer.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/NormalBGMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/GroundMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BackgroundMaker/BackgroundMaker.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/BgScroll.cs" Line="14" Column="33" />
-      <File FileName="Assets/Script/BgLooper.cs" Line="35" Column="36" />
-    </Files>
-  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
